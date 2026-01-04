@@ -1,29 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matt's Cheesecake</title>
-  <style>:root { --primary-color: #208a8e; --primary-light: #32b8c6; --bg-light: #fdfcf9; --bg-white: #ffffff; --text-dark: #134252; --text-secondary: #627c88; --border-color: #d4c4b0; }* { margin: 0; padding: 0; box-sizing: border-box; }body { font-family: 'Georgia', 'Lora', serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }header { background-color: var(--bg-white); border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }nav { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; flex-wrap: wrap; }.logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }.nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }.nav-links a { color: var(--text-dark); text-decoration: none; font-size: 14px; transition: color 0.3s ease; }.nav-links a:hover { color: var(--primary-color); }.hero { background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; padding: 40px 20px; text-align: center; }.hero h1 { font-size: 40px; margin: 0; }.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }.breadcrumb { font-size: 14px; color: var(--text-secondary); margin-bottom: 30px; }.breadcrumb a { color: var(--primary-color); text-decoration: none; }.breadcrumb a:hover { text-decoration: underline; }.recipe-content { background: var(--bg-white); border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }.recipe-section { margin-bottom: 30px; }.recipe-section h2 { font-size: 24px; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }.recipe-section ul { list-style: none; padding-left: 0; }.recipe-section li { padding: 8px 0; border-bottom: 1px solid #e0e0e0; }.recipe-section li:last-child { border-bottom: none; }.pdf-section { margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--border-color); }.pdf-container { background: var(--bg-light); border-radius: 8px; padding: 20px; margin-bottom: 20px; }.pdf-viewer { width: 100%; height: 600px; border: 1px solid var(--border-color); border-radius: 6px; }.pdf-link { display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold; transition: background-color 0.3s ease; }.pdf-link:hover { background-color: var(--primary-light); }.back-button { display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold; transition: background-color 0.3s ease; margin-top: 20px; }.back-button:hover { background-color: var(--primary-light); }@media (max-width: 768px) { .hero h1 { font-size: 28px; } .nav-links { gap: 10px; font-size: 12px; } .pdf-viewer { height: 400px; } }</style>
+  <style>
+    :root {
+      --primary-color: #208a8e;
+      --primary-light: #32b8c6;
+      --bg-light: #fdfcf9;
+      --bg-white: #ffffff;
+      --text-dark: #134252;
+      --text-secondary: #627c88;
+      --border-color: #d4c4b0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Lora', serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: var(--bg-white);
+      border-bottom: 2px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+
+    .breadcrumb a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* Recipe Content */
+    .recipe-content {
+      background: var(--bg-white);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .recipe-section {
+      margin-bottom: 30px;
+    }
+
+    .recipe-section h2 {
+      font-size: 24px;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .recipe-section h3 {
+      font-size: 18px;
+      color: var(--text-dark);
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .recipe-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .recipe-section li {
+      padding: 8px 0 8px 24px;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+
+    .recipe-section li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .recipe-section li:last-child {
+      border-bottom: none;
+    }
+
+    .instructions-list {
+      list-style: decimal;
+      padding-left: 30px;
+    }
+
+    .instructions-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .instructions-list li:last-child {
+      border-bottom: none;
+    }
+
+    .subsection {
+      background-color: #f9f7f4;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* Notes Section */
+    .notes-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .notes-list li {
+      padding: 12px 0 12px 24px;
+      border-left: 3px solid var(--primary-color);
+      background-color: #f9f7f4;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      padding-left: 16px;
+    }
+
+    /* PDF Section */
+    .pdf-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid var(--border-color);
+    }
+
+    .pdf-container {
+      background: var(--bg-light);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 600px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+
+    /* Buttons */
+    .pdf-link,
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-link:hover,
+    .back-button:hover {
+      background-color: var(--primary-light);
+    }
+
+    .back-button {
+      margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .pdf-viewer {
+        height: 400px;
+      }
+
+      .recipe-section h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header><nav><a href="../../../index.html" class="logo">🍳 Recipe Repository</a><ul class="nav-links"><li><a href="../../../index.html">Home</a></li>
-    <li><a href="../asian.html">Asian</a></li>
-    <li><a href="../desserts.html">Desserts</a></li>
-    <li><a href="../mexican.html">Mexican</a></li>
-    <li><a href="../sides.html">Sides</a></li>
-    <li><a href="../sourdough.html">Sourdough</a></li>
-    <li><a href="../soups.html">Soups</a></li></ul></nav>
+  <!-- Header Navigation -->
+  <header>
+    <nav>
+      <a href="../../../index.html" class="logo">🍳 Recipe Repository</a>
+      <ul class="nav-links">
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../asian.html">Asian</a></li>
+        <li><a href="../desserts.html">Desserts</a></li>
+        <li><a href="../mexican.html">Mexican</a></li>
+        <li><a href="../sides.html">Sides</a></li>
+        <li><a href="../sourdough.html">Sourdough</a></li>
+        <li><a href="../soups.html">Soups</a></li>
+      </ul>
+    </nav>
   </header>
-    <div class="hero"><h1>Matt's Cheesecake</h1></div><div class="container"><div class="breadcrumb"><a href="../../../index.html">Home</a> → <a href="../desserts.html">Desserts</a> → Matt's Cheesecake</div>
-      <div class="recipe-content">
-        <div class="recipe-section">
-        <h2>Ingredients</h2><ul>
-        <li>Ingredient 1</li>
-        <li>Ingredient 2</li>
-        </ul></div>
-        <div class="recipe-section">
-          <h2>Instructions</h2>
-          <ul><li>Step 1</li>
-          <li>Step 2</li></ul></div>
-        <div class="recipe-section"><h2>Notes</h2><p>Add notes here</p></div>
-        <div class="pdf-section"><h2>Recipe PDF</h2><div class="pdf-container"><iframe class="pdf-viewer" src="../../pdfs/MattCheesecake.pdf"></iframe></div><a href="../../pdfs/MattCheesecake.pdf" class="pdf-link" download>Download PDF</a></div><a href="../desserts.html" class="back-button">← Back to Desserts</a></div></div></body></html>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Matt's Cheesecake</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+      <a href="../../../index.html">Home</a> → <a href="../desserts.html">Desserts</a> → Matt's Cheesecake
+    </div>
+
+    <!-- Recipe Content -->
+    <div class="recipe-content">
+      <!-- Ingredients Section -->
+      <div class="recipe-section">
+        <h2>Ingredients</h2>
+        
+        <h3>Cheesecake Batter</h3>
+        <ul>
+          <li>Four 8-ounce packages of Philadelphia cream cheese</li>
+          <li>Five large eggs</li>
+          <li>Two cups sour cream</li>
+          <li>One stick (8 tablespoons) butter</li>
+          <li>One and a half cups granulated sugar</li>
+          <li>Two tablespoons cornstarch (or flour)*</li>
+          <li>One and a half teaspoons vanilla extract</li>
+          <li>One teaspoon apple cider vinegar (or lemon juice)</li>
+        </ul>
+
+        <h3>Graham Cracker Crust</h3>
+        <ul>
+          <li>Fourteen full sheets of graham crackers, crumbed</li>
+          <li>One stick (8 tablespoons) butter, melted</li>
+        </ul>
+      </div>
+
+      <!-- Instructions Section -->
+      <div class="recipe-section">
+        <h2>Instructions</h2>
+        
+        <div class="subsection">
+          <h3>Crust</h3>
+          <ol class="instructions-list">
+            <li>Preheat the oven to 300°F.</li>
+            <li>To prevent a soggy crust, place a ten-inch spring-form pan into an oven cooking bag and press the sides of the oven safe bag around the outside edges of the spring-form pan.</li>
+            <li>Tightly wrap 2 layers of aluminum foil around the outside of the spring-form pan covering the oven bag, the bottom of the pan, and the sides of the pan.</li>
+            <li>Generously coat inside of the pan with butter or nonstick spray.</li>
+            <li>Use a food processor or blender to grind the graham cracker sheets into little pieces. Alternatively you can crush them with a rolling pin (in a zip bag) or by hand/with a knife.</li>
+            <li>Mix the graham cracker crumbs and the melted butter together until combined. Press the mixture into the bottom of a spring form pan and slightly up the sides. To make sure it is tight and compact, use the bottom and sides of a measuring cup to press the crust into the bottom and sides of the pan.</li>
+            <li>Pre-bake the crust for about 10 minutes at 300°F.</li>
+          </ol>
+        </div>
+
+        <div class="subsection">
+          <h3>Cheesecake Batter</h3>
+          <ol class="instructions-list">
+            <li>Using an electric mixer with paddle attachment, beat the cream cheese and butter together until smooth. Add the eggs, one at a time, until they are blended. Add the sour cream and mix until smooth.</li>
+            <li>Add sugar, cornstarch (or flour), vanilla and apple cider vinegar (or lemon juice), and beat for about two minutes until completely smooth.</li>
+            <li>Pour the batter into the baked crust in the spring-form pan.</li>
+            <li>Place the filled cheesecake into a bain marie (I usually use a roasting pan that is large enough to prevent the sides of the spring-form pan from touching it).</li>
+            <li>Place the roasting pan, spring-form pan, and cheesecake (all nestled inside one another) into the oven and carefully pour boiling water into the roasting pan to reach halfway up sides of the spring-form pan. (Being careful not to splash any water onto the cheesecake!)</li>
+            <li>Bake for about 2 hours, or until the cake is lightly browned on top. Once done, remove the roasting pan from the oven and let it sit for a few minutes.</li>
+            <li>Carefully remove the spring-form pan from the water bath (bain marie). Then, remove the foil and oven safe bag from around the spring-form pan. Let the cheesecake cool at room temperature for about an hour.</li>
+            <li>While still in the spring-form pan, cover and chill the cheesecake thoroughly (ideally overnight) before unlatching and serving.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Notes Section -->
+      <div class="recipe-section">
+        <h2>Notes</h2>
+        <ul class="notes-list">
+          <li><strong>Room Temperature:</strong> For the best texture, all ingredients (but especially those kept in the fridge) should be room temperature before mixing. If not, you might end up with globs of cream cheese that are not fully incorporated. That said, even if this happens it will still generally be fine.</li>
+          <li><strong>Cornstarch/Flour:</strong> This is more to ensure that the cheesecake will set after baking. While it can be omitted (for a lovely texture), you do run the risk of the cake not fully setting. I have also reduced the amount or intentionally left it out depending on other starch-like ingredients (e.g., cocoa powder) added to the recipe (e.g., for a chocolate variation).</li>
+        </ul>
+      </div>
+
+      <!-- PDF Section -->
+      <div class="pdf-section">
+        <h2>Recipe PDF</h2>
+        <div class="pdf-container">
+          <iframe class="pdf-viewer" src="../../pdfs/MattCheesecake.pdf"></iframe>
+        </div>
+        <a href="../../pdfs/MattCheesecake.pdf" class="pdf-link" download>Download PDF</a>
+      </div>
+
+      <!-- Back Button -->
+      <a href="../desserts.html" class="back-button">← Back to Desserts</a>
+    </div>
+  </div>
+</body>
+</html>
