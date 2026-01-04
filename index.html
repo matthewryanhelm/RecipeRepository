@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Repository - Home</title>
+    <style>
+        :root {
+            --primary-color: #208a8e;
+            --primary-light: #32b8c6;
+            --accent-color: #e68161;
+            --accent-dark: #a84d2f;
+            --bg-light: #fdfcf9;
+            --bg-white: #ffffff;
+            --text-dark: #134252;
+            --text-secondary: #627c88;
+            --border-color: #d4c4b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Lora', serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .home-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .home-section h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .category-card {
+            background: var(--bg-white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.12);
+        }
+
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                gap: 10px;
+                font-size: 12px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🍳 Recipe Repository</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories/asian.html">Asian</a></li>
+                <li><a href="categories/desserts.html">Desserts</a></li>
+                <li><a href="categories/mexican.html">Mexican</a></li>
+                <li><a href="categories/sides.html">Sides</a></li>
+                <li><a href="categories/sourdough.html">Sourdough</a></li>
+                <li><a href="categories/soups.html">Soups</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home View -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Recipe Repository</h1>
+            <p>Family-favorite recipes organized by category</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="home-section">
+            <h2>Browse Recipes by Category</h2>
+            <div class="category-grid">
+                <a href="categories/asian.html" class="category-card">
+                    <div class="category-icon">🥢</div>
+                    <h3>Asian</h3>
+                </a>
+                <a href="categories/desserts.html" class="category-card">
+                    <div class="category-icon">🍰</div>
+                    <h3>Desserts</h3>
+                </a>
+                <a href="categories/mexican.html" class="category-card">
+                    <div class="category-icon">🌮</div>
+                    <h3>Mexican</h3>
+                </a>
+                <a href="categories/sides.html" class="category-card">
+                    <div class="category-icon">🥗</div>
+                    <h3>Sides</h3>
+                </a>
+                <a href="categories/sourdough.html" class="category-card">
+                    <div class="category-icon">🍞</div>
+                    <h3>Sourdough</h3>
+                </a>
+                <a href="categories/soups.html" class="category-card">
+                    <div class="category-icon">🍲</div>
+                    <h3>Soups</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

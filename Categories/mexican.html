@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexican Recipes</title>
+    <style>
+        :root {
+            --primary-color: #208a8e;
+            --primary-light: #32b8c6;
+            --bg-light: #fdfcf9;
+            --bg-white: #ffffff;
+            --text-dark: #134252;
+            --text-secondary: #627c88;
+            --border-color: #d4c4b0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', 'Lora', serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+        header { background-color: var(--bg-white); border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; flex-wrap: wrap; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .hero { background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; padding: 40px 20px; text-align: center; }
+        .hero h1 { font-size: 40px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .breadcrumb { font-size: 14px; color: var(--text-secondary); margin-bottom: 30px; }
+        .breadcrumb a { color: var(--primary-color); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .recipe-list { list-style: none; }
+        .recipe-item { background: var(--bg-white); border-radius: 8px; padding: 20px; margin-bottom: 15px; border-left: 4px solid var(--primary-color); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .recipe-item h3 { color: var(--text-dark); margin-bottom: 8px; }
+        .recipe-item a { display: inline-block; padding: 10px 20px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold; transition: background-color 0.3s ease; margin-top: 10px; }
+        .recipe-item a:hover { background-color: var(--primary-light); }
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } .nav-links { gap: 10px; font-size: 12px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🍳 Recipe Repository</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="asian.html">Asian</a></li>
+                <li><a href="desserts.html">Desserts</a></li>
+                <li><a href="mexican.html">Mexican</a></li>
+                <li><a href="sides.html">Sides</a></li>
+                <li><a href="sourdough.html">Sourdough</a></li>
+                <li><a href="soups.html">Soups</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hero"><h1>Mexican Recipes</h1></div>
+    <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Home</a> → Mexican</div>
+        <ul class="recipe-list">
+            <li class="recipe-item"><h3>Cafe Rio Copycat Shredded Chicken</h3><a href="recipes/cafe-rio-copycat-shredded-chicken.html">View Recipe</a></li>
+        </ul>
+    </div>
+</body>
+</html>
