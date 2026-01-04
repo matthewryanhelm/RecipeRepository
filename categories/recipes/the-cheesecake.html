@@ -138,18 +138,18 @@
       font-weight: 600;
     }
 
-    .recipe-section ul {
+    .recipe-section > .recipe-section ul {
       list-style: none;
       padding-left: 0;
     }
 
-    .recipe-section li {
+    .recipe-section > .recipe-section ul li {
       padding: 8px 0 8px 24px;
       border-bottom: 1px solid #e0e0e0;
       position: relative;
     }
 
-    .recipe-section li:before {
+    .recipe-section > .recipe-section ul li:before {
       content: "•";
       position: absolute;
       left: 0;
@@ -157,22 +157,29 @@
       font-weight: bold;
     }
 
-    .recipe-section li:last-child {
+    .recipe-section > .recipe-section ul li:last-child {
       border-bottom: none;
     }
 
     .instructions-list {
       list-style: decimal;
       padding-left: 30px;
+      color: var(--primary-color);
     }
 
     .instructions-list li {
       padding: 10px 0;
       border-bottom: 1px solid #e0e0e0;
+      border-bottom: none;
+      color: var(--text-dark);
     }
 
     .instructions-list li:last-child {
       border-bottom: none;
+    }
+
+    .instructions-list li:before {
+      display: none;
     }
 
     .subsection {
@@ -189,12 +196,11 @@
     }
 
     .notes-list li {
-      padding: 12px 0 12px 24px;
+      padding: 16px;
       border-left: 3px solid var(--primary-color);
       background-color: #f9f7f4;
       margin-bottom: 12px;
       border-radius: 4px;
-      padding-left: 16px;
     }
 
     /* PDF Section */
@@ -353,7 +359,7 @@
         <h2>Notes</h2>
         <ul class="notes-list">
           <li><strong>Room Temp:</strong> For the best texture, all ingredients (but especially those kept in the fridge) should be room temperature before mixing. If not, you might end up with globs of cream cheese that are not fully incorporated. That said, even if this happens it will still generally be fine.</li>
-          <li><strong>Flour/starch:</strong>The starch in the ingredients more to ensure that the cheesecake will set after baking. While it can be omitted (for a lovely texture), you do run the risk of the cake not fully setting. I have also reduced the amount or intentionally left it out depending on other starch-like ingredients (e.g., cocoa powder) added to the recipe (e.g., for a chocolate variation).</li>
+          <li><strong>Flour or Starch:</strong> The addition of flour or stach to the list of ingredients is more to ensure that the cheesecake will set after baking. While it can be omitted (for a lovely texture), you do run the risk of the cake not fully setting. I have also reduced the amount or intentionally left it out depending on other starch-like ingredients (e.g., cocoa powder) added to the recipe (e.g., for a chocolate variation).</li>
         </ul>
       </div>
 
